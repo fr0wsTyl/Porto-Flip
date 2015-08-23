@@ -32,6 +32,7 @@ Project functions and requirements:
 	 		- create courses
 	 		- add students
 	 		- edit course participants
+	 		- manage file upload download
 	 		- send assignments
 			- ?send e-mails
 			- notifications
@@ -40,3 +41,6 @@ Project functions and requirements:
 	
 
 
+References:
+Login documentation:
+https://www.parse.com/docs/js/guide#users-logging-in

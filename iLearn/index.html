@@ -31,73 +31,8 @@
         <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
         <script type="text/javascript">
             Parse.initialize("OxNzrzXTEVzRxH9qHpel84j4dD8QJs4aFUbmrWYc", "BkkvpNtIeTo6urCE4WzLnFP3M4SaONZ2rzO6MP4r");
-
-    // $('#register-btn').on('click', function() {
-    //     var usernameValue = $('#username-value').val();
-    //     var TestObject = Parse.Object.extend("User");
-    //     var testObject = new TestObject();
-    //     testObject.save({
-    //         username: usernameValue,
-    //         password: "pass",
-    //         ID: "234567asd8"
-    //     }, {
-    //         success: function(object) {
-    //             $(".success").show();
-    //         },
-    //         error: function(model, error) {
-    //             $(".error").show();
-    //         }
-    //     });
-    // })
-
-    $('#sign-in-button').on('click', function() {
-        var $usernameValue = $('#username-login-value').val();
-        var $passwordValue = $('#password-login-value').val();
-
-        Parse.User.logIn($usernameValue, $passwordValue, {
-            success: function(user) {
-                $('#main').html('');
-                $('#main').load('content/success-user-login-message.html');
-                setTimeout(function() {
-                    document.location.href = 'profile.html';
-                }, 1200);
-            },
-            error: function(user, error) {
-                
-            }
-        });
-
-
-        // // query.equalTo('User', {
-        // //     'username': $usernameValue
-        // // });
-        // //query.equalTo('username', $usernameValue);
-
-        // Parse.User.logIn($usernameValue, $passwordValue, {
-        //     success: function(user) {
-        //         // body...
-        //     },
-        //     error: function(user,err) {
-        //         console.log(err);
-        //     }
-        // })
-
-        // query.equalTo('ID', '2345678');
-        // query.find({
-        //     success: function(results) {
-        //         console.log(results);
-        //         if (results.length === 0) {
-        //             alert('Invalid username or password');
-        //         } else {
-        //             alert('You are logged in now');
-        //         }
-        //     },
-        //     error: function(error) {
-        //         alert('something happened');
-        //     }
-        // });
-    })
         </script>
+        <script src="scripts/login.js"></script>
 </body>
 
 </html>

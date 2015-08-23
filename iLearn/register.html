@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>iLearn | Home page</title>
+    <title>iLearn | Login page</title>
     <meta name="description" content="learning system">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
@@ -16,21 +16,23 @@
             <div id="main" class="text-center col-md-6 col-md-offset-3">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Login</h3>
+                        <h3 class="panel-title">Register</h3>
                     </div>
                     <div class="panel-body">
-                        <input type="text" id="username-login-value" class="form-control" placeholder="Enter username">
-                        <input type="password" id="password-login-value" class="form-control" placeholder="Enter password">
-                        <button id="sign-in-button" class="btn btn-primary">Sign in</button>
-                        <div>Don't have an account? Create your own from <a href="register.html">here</a></div>
+                        <input type="text" id="username-register-value" class="form-control" placeholder="Enter username">
+                        <input type="text" id="email-register-value" class="form-control" placeholder="Enter email address">
+                        <input type="password" id="password-register-value" class="form-control" placeholder="Enter password">
+                        <button id="sign-up-button" class="btn btn-primary">Sign up</button>
+                        <div>Have an account? Sign in from <a href="login.html">here</a></div>
                     </div>
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="scripts/libs/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
-        <script type="text/javascript">
-            Parse.initialize("OxNzrzXTEVzRxH9qHpel84j4dD8QJs4aFUbmrWYc", "BkkvpNtIeTo6urCE4WzLnFP3M4SaONZ2rzO6MP4r");
+    </div>
+    <script type="text/javascript" src="scripts/libs/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+    <script type="text/javascript">
+        Parse.initialize("OxNzrzXTEVzRxH9qHpel84j4dD8QJs4aFUbmrWYc", "BkkvpNtIeTo6urCE4WzLnFP3M4SaONZ2rzO6MP4r");
 
     // $('#register-btn').on('click', function() {
     //     var usernameValue = $('#username-value').val();
@@ -50,22 +52,41 @@
     //     });
     // })
 
-    $('#sign-in-button').on('click', function() {
-        var $usernameValue = $('#username-login-value').val();
-        var $passwordValue = $('#password-login-value').val();
-
-        Parse.User.logIn($usernameValue, $passwordValue, {
-            success: function(user) {
+    $('#sign-up-button').on('click', function() {
+        var $usernameValue = $('#username-register-value').val();
+        var $emailValue = $('#email-register-value').val();
+        var $passwordValue = $('#password-register-value').val();
+        
+        var UserObject = Parse.Object.extend('User');
+        var currentUser = new UserObject();
+        currentUser.save({
+            username: $usernameValue,
+            email: $emailValue,
+            password: $passwordValue
+        }, {
+            success: function(result) {
                 $('#main').html('');
-                $('#main').load('content/success-user-login-message.html');
+                $('#main').load('content/success-user-register-message.html');
                 setTimeout(function() {
                     document.location.href = 'profile.html';
                 }, 1200);
             },
-            error: function(user, error) {
+            error: function(err) {
                 
             }
-        });
+        })
+        
+        // Parse.User.logIn($usernameValue, $passwordValue, {
+        //     success: function(user) {
+        //         console.log("yess");
+        //         console.log(user);
+        //         // Do stuff after successful login.
+        //     },
+        //     error: function(user, error) {
+        //         console.log("noo");
+        //         // The login failed. Check error to see why.
+        //     }
+        // });
 
 
         // // query.equalTo('User', {
@@ -97,7 +118,7 @@
         //     }
         // });
     })
-        </script>
+    </script>
 </body>
 
 </html>

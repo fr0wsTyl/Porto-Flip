@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>iLearn | Home page</title>
+    <title>iLearn | Login page</title>
     <meta name="description" content="learning system">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
@@ -14,17 +14,7 @@
     <div id="wrapper" class="container-fluid">
         <div class="row">
             <div id="main" class="text-center col-md-6 col-md-offset-3">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Login</h3>
-                    </div>
-                    <div class="panel-body">
-                        <input type="text" id="username-login-value" class="form-control" placeholder="Enter username">
-                        <input type="password" id="password-login-value" class="form-control" placeholder="Enter password">
-                        <button id="sign-in-button" class="btn btn-primary">Sign in</button>
-                        <div>Don't have an account? Create your own from <a href="register.html">here</a></div>
-                    </div>
-                </div>
+                <h1>IN MY PROFILE YEEEEE</h1>
             </div>
         </div>
         <script type="text/javascript" src="scripts/libs/jquery-2.1.4.min.js"></script>
@@ -54,16 +44,27 @@
         var $usernameValue = $('#username-login-value').val();
         var $passwordValue = $('#password-login-value').val();
 
+        var Teacher = Parse.Object.extend("User");
+        var teacher = new Teacher();
+        teacher.set('name', 111);
+        teacher.save(null, {
+            success: function() {
+                // body...
+            },
+            error: function() {
+                // body...
+            }
+        });
+
         Parse.User.logIn($usernameValue, $passwordValue, {
             success: function(user) {
-                $('#main').html('');
-                $('#main').load('content/success-user-login-message.html');
-                setTimeout(function() {
-                    document.location.href = 'profile.html';
-                }, 1200);
+                console.log("yess");
+                console.log(user);
+                // Do stuff after successful login.
             },
             error: function(user, error) {
-                
+                console.log("noo");
+                // The login failed. Check error to see why.
             }
         });
 

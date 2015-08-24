@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap/bootflat.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2014.1.318/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2014.1.318/styles/kendo.blueopal.min.css" />
 </head>
 
 <body>
@@ -17,12 +19,24 @@
                 <h1>IN MY PROFILE YEEEEE</h1>
             </div>
         </div>
+        <div id="grid"></div>
     </div>
-        <script type="text/javascript" src="scripts/libs/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
-        <script type="text/javascript">
-            Parse.initialize("OxNzrzXTEVzRxH9qHpel84j4dD8QJs4aFUbmrWYc", "BkkvpNtIeTo6urCE4WzLnFP3M4SaONZ2rzO6MP4r");
-        </script>
+    <script type="text/javascript" src="scripts/libs/system.js"></script>
+    <script>
+        System.config({
+            transpiler: 'babel',
+            map: {
+                'babel': 'node_modules/babel-core/browser.js',
+                'jquery': 'scripts/libs/jquery-2.1.4.min.js',
+                'parse': 'scripts/libs/parse-1.5.0.min.js',
+                'kendo': 'http://kendo.cdn.telerik.com/2014.1.318/js/kendo.all.min.js'
+            }
+        });
+        System.import('scripts/gridTable.js')
+                .then(function(module) {
+                    module.load();
+                });
+    </script>
 </body>
 
 </html>

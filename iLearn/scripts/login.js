@@ -4,7 +4,7 @@ import {parseInitialization} from 'scripts/engine.js'
 
 function login() {
     parseInitialization();
-    const TIMEOUT_CHANING_PAGE = 1200
+    const TIMEOUT_CHANING_PAGE = 1200;
     $('#sign-in-button').on('click', function() {
         let $usernameValue = $('#username-login-value').val();
         let $passwordValue = $('#password-login-value').val();
@@ -23,7 +23,7 @@ function login() {
             }
         });
     });
-};
+}
 
 export {
     login

@@ -1,5 +1,5 @@
 <h2 align="center">Important</h2>
-In order to run the application you need to have installed NodeJS and run the command npm install in iLearn folder. 
+In order to run the application you need to have installed NodeJS and run the command <strong>npm install</strong> in iLearn folder. 
 Otherwise you won't be able to run the application because of the missing javascript libraries.
 
 # Porto-Flip

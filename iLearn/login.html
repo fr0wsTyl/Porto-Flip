@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>iLearn | Login page</title>
+    <title>iLearn | Home page</title>
     <meta name="description" content="learning system">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
@@ -28,12 +28,22 @@
             </div>
         </div>
     </div>
-        <script type="text/javascript" src="scripts/libs/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
-        <script type="text/javascript">
-            Parse.initialize("OxNzrzXTEVzRxH9qHpel84j4dD8QJs4aFUbmrWYc", "BkkvpNtIeTo6urCE4WzLnFP3M4SaONZ2rzO6MP4r");
-        </script>
-        <script src="scripts/login.js"></script>
+    <script type="text/javascript" src="scripts/libs/system.js"></script>
+    <script type="text/javascript">
+        System.config({
+			transpiler: 'babel',
+			map: {
+				'babel': 'node_modules/babel-core/browser.js',
+                'jquery': 'scripts/libs/jquery-2.1.4.min.js',
+                'parse': 'scripts/libs/parse-1.5.0.min.js',
+			}
+		})
+		System.import('scripts/login.js')
+		.then(function(module) {
+			module.login();
+		});
+        
+    </script>
 </body>
 
 </html>

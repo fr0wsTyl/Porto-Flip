@@ -1,7 +1,14 @@
+import {jquery} from 'jquery';
+import {Parse} from 'parse';
+
 function start() {
-	console.log("In engine module");
+	
 }
 
+function parseInitialization() {
+	Parse.initialize("OxNzrzXTEVzRxH9qHpel84j4dD8QJs4aFUbmrWYc", "BkkvpNtIeTo6urCE4WzLnFP3M4SaONZ2rzO6MP4r");
+}
 export {
-	start
+	start,
+	parseInitialization
 }

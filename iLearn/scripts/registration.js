@@ -1,26 +1,38 @@
-(function () {
-        $('#sign-up-button').on('click', function () {
-                var $usernameValue = $('#username-register-value').val();
-                var $emailValue = $('#email-register-value').val();
-                var $passwordValue = $('#password-register-value').val();
+import {jquery} from 'jquery'
+import {Parse} from 'parse'
+import {parseInitialization} from 'scripts/engine.js'
 
-                var UserObject = Parse.Object.extend('User');
-                var currentUser = new UserObject();
-                currentUser.save({
-                        username: $usernameValue,
-                        email: $emailValue,
-                        password: $passwordValue
-                }, {
-                                success: function (result) {
-                                        $('#main').html('');
-                                        $('#main').load('content/success-user-register-message.html');
-                                        setTimeout(function () {
-                                                document.location.href = 'profile.html';
-                                        }, 1200);
-                                },
-                                error: function (err) {
+function registration() {
+    parseInitialization();
+    const TIMEOUT_CHANGING_PAGE = 1500;
+    $('#sign-up-button').on('click', function() {
+        let $usernameValue = $('#username-register-value').val();
+        let $emailValue = $('#email-register-value').val();
+        let $passwordValue = $('#password-register-value').val();
 
-                                }
-                        })
-        });
-})();
+        let UserObject = Parse.Object.extend('User');
+        let currentUser = new UserObject();
+        
+        currentUser.save({
+            username: $usernameValue,
+            email: $emailValue,
+            password: $passwordValue
+        }, {
+            success: function(result) {
+               let $element = $('<div/ >').text('Successful registration. Redirecting to your profile...').addClass('label label-success').show();
+                $('#sign-up-button').after($element);
+                setTimeout(function() {
+                    document.location.href = 'profile.html';
+                }, TIMEOUT_CHANGING_PAGE);
+            },
+            error: function(err) {
+                let $element = $('<div/ >').text('Invalid data').addClass('label label-danger').show();
+                $('#sign-up-button').after($element);
+            }
+        })
+    });
+}
+
+export {
+    registration
+}

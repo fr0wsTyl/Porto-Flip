@@ -6,7 +6,7 @@ import {bootflat} from 'bootflat'
 function login(element) {
     parseInitialization();
     const TIMEOUT_CHANING_PAGE = 1200;
-    //$('#' + element).load('../content/login-content.html');
+    //$('#login-panel').load('./content/login-content.html');
     $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
     $('#sign-in-button').on('click', function() {
         let $usernameValue = $('#username-login-value').val();
@@ -14,7 +14,7 @@ function login(element) {
         
         Parse.User.logIn($usernameValue, $passwordValue, {
             success: function(user) {
-                let $element = $('<div/ >').text('Successful login').addClass('label label-success').show();
+                let $element = $('<div/ >').text('Successful login. Redirecting to your profile...').addClass('label label-success').show();
                 $('#sign-in-button').after($element);
                 setTimeout(function() {
                     document.location.href = 'profile.html';

@@ -13,15 +13,25 @@
 <body>
     <div id="wrapper" class="container-fluid">
         <div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a href="index.html"><i class="glyphicon glyphicon-home"></i> Home <span class="badge"></span></a></li>
+                    <li><a href="login.html"><i class="glyphicon glyphicon-user"></i> Login <span class="badge badge-danger"></span></a></li>
+                    <li class="active"><a href="register.html" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-cog"></i> Register</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
             <div id="main" class="text-center col-md-6 col-md-offset-3">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Register</h3>
                     </div>
                     <div class="panel-body">
-                        <input type="text" id="username-register-value" class="form-control" placeholder="Enter username">
-                        <input type="text" id="email-register-value" class="form-control" placeholder="Enter email address">
-                        <input type="password" id="password-register-value" class="form-control" placeholder="Enter password">
+                        <input type="text" id="username-register-value" class="form-control"  data-toggle="tooltip" class="form-control" data-original-title="Your username" placeholder="Enter username">
+                        <input type="text" id="email-register-value" class="form-control"  data-toggle="tooltip" class="form-control" data-original-title="Your email" placeholder="Enter email address">
+                        <input type="password" id="password-register-value" class="form-control" data-toggle="tooltip" class="form-control" data-original-title="Your password" placeholder="Enter password" >
                         <button id="sign-up-button" class="btn btn-primary">Sign up</button>
                         <div>Have an account? Sign in from <a href="login.html">here</a></div>
                     </div>
@@ -36,7 +46,8 @@
 			map: {
 				'babel': 'node_modules/babel-core/browser.js',
                 'jquery': 'scripts/libs/jquery-2.1.4.min.js',
-                'parse': 'scripts/libs/parse-1.5.0.min.js'
+                'parse': 'scripts/libs/parse-1.5.0.min.js',
+                'bootflat': 'scripts/libs/site.min.js'
 			}
 		});
 		System.import('scripts/registration.js')

@@ -2,7 +2,7 @@ import {jquery} from 'jquery';
 import {Parse} from 'parse';
 
 function start() {
-	
+	$('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
 }
 
 function parseInitialization() {

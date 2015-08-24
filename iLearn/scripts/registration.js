@@ -1,10 +1,12 @@
 import {jquery} from 'jquery'
 import {Parse} from 'parse'
 import {parseInitialization} from 'scripts/engine.js'
+import {bootflat} from 'bootflat'
 
 function registration() {
     parseInitialization();
     const TIMEOUT_CHANGING_PAGE = 1500;
+    $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
     $('#sign-up-button').on('click', function() {
         let $usernameValue = $('#username-register-value').val();
         let $emailValue = $('#email-register-value').val();

@@ -33,15 +33,15 @@
     <script type="text/javascript" src="scripts/libs/system.js"></script>
     <script type="text/javascript">
         System.config({
-            transpiller: 'babel',
-            map: {
-                'babel': 'node_modules/babel-core/browser.min.js'
-            }
-        })
-        System.import('scripts/engine.js')
-        // .then(function (engine) {
-        //     engine.start();
-        // });
+			transpiler: 'babel',
+			map: {
+				'babel': 'node_modules/babel-core/browser.js'
+			}
+		})
+		System.import('scripts/engine.js')
+		.then(function(engine) {
+			engine.start();
+		});
         Parse.initialize("OxNzrzXTEVzRxH9qHpel84j4dD8QJs4aFUbmrWYc", "BkkvpNtIeTo6urCE4WzLnFP3M4SaONZ2rzO6MP4r");
     </script>
     <script src="scripts/login.js"></script>

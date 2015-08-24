@@ -1,10 +1,13 @@
 import {jquery} from 'jquery'
 import {Parse} from 'parse'
 import {parseInitialization} from 'scripts/engine.js'
+import {bootflat} from 'bootflat'
 
-function login() {
+function login(element) {
     parseInitialization();
     const TIMEOUT_CHANING_PAGE = 1200;
+    //$('#' + element).load('../content/login-content.html');
+    $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
     $('#sign-in-button').on('click', function() {
         let $usernameValue = $('#username-login-value').val();
         let $passwordValue = $('#password-login-value').val();

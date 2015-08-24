@@ -1,0 +1,23 @@
+{
+  "name": "ilearn",
+  "version": "1.0.0",
+  "description": "Learning system",
+  "main": "index.html",
+  "dependencies": {
+    "babel-core": "^5.8.22"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fr0wsTyl/Porto-Flip.git"
+  },
+  "author": "Porto-Flip",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fr0wsTyl/Porto-Flip/issues"
+  },
+  "homepage": "https://github.com/fr0wsTyl/Porto-Flip#readme"
+}

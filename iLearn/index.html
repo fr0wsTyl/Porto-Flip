@@ -30,7 +30,14 @@
     </div>
     <script type="text/javascript" src="scripts/libs/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+    <script type="text/javascript" src="scripts/libs/system.js"></script>
     <script type="text/javascript">
+        System.config({
+            transpiller: 'babel',
+            map: {
+                'babel': 'node_modules/babel-core/browser.min.js'
+            }
+        })
         Parse.initialize("OxNzrzXTEVzRxH9qHpel84j4dD8QJs4aFUbmrWYc", "BkkvpNtIeTo6urCE4WzLnFP3M4SaONZ2rzO6MP4r");
     </script>
     <script src="scripts/login.js"></script>

@@ -2,6 +2,6 @@ body {
   width: 60%;
   margin: 0 auto;
 }
-input {
+input, button, div {
   margin-top: 10px;
 }

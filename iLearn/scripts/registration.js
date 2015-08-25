@@ -2,16 +2,30 @@ import {jquery} from 'jquery'
 import {Parse} from 'parse'
 import {parseInitialization} from 'scripts/engine.js'
 import {bootflat} from 'bootflat'
+import {validator} from 'scripts/validator.js'
 
 function registration() {
     parseInitialization();
     const TIMEOUT_CHANGING_PAGE = 1500;
     $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
-    
+
     $('#sign-up-button').on('click', function() {
         let $usernameValue = $('#username-register-value').val();
         let $emailValue = $('#email-register-value').val();
         let $passwordValue = $('#password-register-value').val();
+
+        // Created only for demo purpose
+        // Use more extensively only if necessary
+        try {
+            validator.validateUserName($usernameValue);
+        } catch (err) {
+            if (err.name === 'InputNameError') {
+                console.log(err.message);
+            }
+            if (err.name === 'InputNameLengthError') {
+                console.log(err.message);
+            }
+        }
 
         let UserObject = Parse.Object.extend('User');
         let currentUser = new UserObject();

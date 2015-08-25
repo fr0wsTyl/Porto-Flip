@@ -18,6 +18,7 @@ function registration() {
         // Use more extensively only if necessary
         try {
             validator.validateUserName($usernameValue);
+            validator.validateUserNameLength($usernameValue);
         } catch (err) {
             if (err.name === 'InputNameError') {
                 console.log(err.message);

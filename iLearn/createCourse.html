@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+    <title>iLearn | Create course page</title>
+    <meta name="description" content="learning system">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap/bootflat.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="login-panel" class="row">
+        <div id="main" class="text-center col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Create course</h3>
+                </div>
+                <div class="panel-body">
+                    <input type="text" id="course-name" class="form-control" placeholder="Enter Course name">
+                    <div class="row">
+                        <input type="checkbox" id="course-type">
+                        <label for="course-type"><span class="label label-primary">Private</span></label>
+                    </div>
+                    <button id="create-course-button" class="btn btn-primary">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="scripts/libs/system.js"></script>
+    <script type="text/javascript">
+        System.config({
+			transpiler: 'babel',
+			map: {
+				'babel': 'node_modules/babel-core/browser.js',
+                'jquery': 'scripts/libs/jquery-2.1.4.min.js',
+                'parse': 'scripts/libs/parse-1.5.0.min.js',
+                'bootflat': 'scripts/libs/site.min.js'
+			}
+		});
+		System.import('scripts/createCourse.js')
+		.then(function(module) {
+			module.createCourse();
+		});
+    </script>
+    
+</body>
+</html>

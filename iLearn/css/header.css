@@ -1,0 +1,23 @@
+#header {
+    position: relative;
+}
+
+#header:after {
+    background: url("../../iLearn/img/bakcground.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    content: "";
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.page-header span {
+    display: inline-block;
+    float: left;
+    font-style: italic;
+}

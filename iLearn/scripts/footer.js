@@ -1,5 +1,4 @@
 (function () {
-    $('head').append('<link rel="stylesheet" href="css/header.css"/>');
 
     var $wrapper = $("#wrapper");
     if ($wrapper.length === 0) {
@@ -7,16 +6,14 @@
         $('body').prepend($wrapper);
     }
 
-    $.ajax("content/header.html", {
+    $.ajax("content/footer.html", {
         type: 'GET',
         contentType: 'text/html',
         success: function (data) {
-            $wrapper.prepend(data);
+            $wrapper.append(data);
         },
         error: function (err) {
             console.log(err);
         }
     });
 } ());
-
-

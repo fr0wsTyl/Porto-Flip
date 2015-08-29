@@ -19,7 +19,8 @@ function createCourse() {
 
         currentCourse.save({
             coursename: $courseNameValue,
-            coursetype: courseType
+            coursetype: courseType,
+            students: []
         }, {
             success: function(result) {
                 let $element = $('<div/ >').text('Successful create new course').addClass('label label-success').show();

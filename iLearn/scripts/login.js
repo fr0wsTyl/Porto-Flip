@@ -15,10 +15,11 @@ function login(element) {
         Parse.User.logIn($usernameValue, $passwordValue, {
             success: function(user) {
                 let $element = $('<div/ >').text('Successful login. Redirecting to your profile...').addClass('label label-success').show();
-                $('#sign-in-button').after($element);
-                setTimeout(function() {
-                    document.location.href = 'profile.html';
-                }, TIMEOUT_CHANING_PAGE);
+                // $('#sign-in-button').after($element);
+                // setTimeout(function() {
+                //     document.location.href = 'profile.html';
+                // }, TIMEOUT_CHANING_PAGE);
+                console.log(user);
             },
             error: function(user, error) {
                 let $element = $('<div/ >').text('Invalid username or password').addClass('label label-danger').show();

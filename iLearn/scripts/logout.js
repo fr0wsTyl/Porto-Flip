@@ -5,10 +5,10 @@ import {parseInitialization} from 'scripts/engine.js'
 function logout(element){
 parseInitialization();
 
-$('#logout').on('click', function(){
-	Parse.User.logOut();
-});
-
+	$('#logout').on('click', function(){
+		Parse.User.logOut();
+	});
+}
 export {
 	logout
 }

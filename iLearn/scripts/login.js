@@ -22,6 +22,7 @@ function login(element) {
                     document.location.href = 'profile.html';
                 }, TIMEOUT_CHANING_PAGE);
                 setCookie('token', user._sessionToken, 1000000);
+                setCookie('userID', user.id, 1000000);
             },
             error: function(user, error) {
                 let $element = $('<div/ >').text('Invalid username or password').addClass('label label-danger').show();

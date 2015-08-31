@@ -40,21 +40,26 @@
                 'babel': 'node_modules/babel-core/browser.js',
                 'jquery': 'scripts/libs/jquery-2.1.4.min.js',
                 'parse': 'scripts/libs/parse-1.5.0.min.js',
-                'kendo': 'http://kendo.cdn.telerik.com/2014.1.318/js/kendo.all.min.js'
-            }
+                'bootflat': 'scripts/libs/site.min.js',
+                'cookie': 'scripts/cookie.js'
+			}
         });
-        System.import('scripts/gridTable.js')
+        System.import('scripts/profile.js')
                 .then(function(module) {
-                    module.addTable();
-                });
-        System.import('scripts/courseGrid.js')
-                .then(function(module) {
-                    module.courseTable();
-                });
-        System.import('scripts/logout.js')
-                .then(function(module) {
-                    module.logout;
+                    module.checkIfLogged();
                 })
+        // System.import('scripts/gridTable.js')
+        //         .then(function(module) {
+        //             module.addTable();
+        //         });
+        // System.import('scripts/courseGrid.js')
+        //         .then(function(module) {
+        //             module.courseTable();
+        //         });
+        // System.import('scripts/logout.js')
+        //         .then(function(module) {
+        //             module.logout;
+        //         })
     </script>
     <script src="scripts/getusername.js"></script>
     <script src="scripts/header.js"></script>

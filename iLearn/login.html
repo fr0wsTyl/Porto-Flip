@@ -73,7 +73,7 @@
             }
             return "";
         }
-        if(getCookie('token').length === 27) {
+        if(getCookie('token').length === 27 && getCookie('userID').length === 10) {
             document.location.href = 'profile.html';
         }
     </script>

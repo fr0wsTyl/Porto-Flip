@@ -49,6 +49,7 @@ function courseTable() {
             success: function(result) {
                 // TODO: IMPORTANT How to get the current user ???
                 let currentStudent = undefined;
+                console.log(currentStudentName);
                 result.add('students', currentStudent);
                 result.save();
             },

@@ -1,6 +1,11 @@
 // use Parse Application ID Key to get info: /Parse/key/currentUser
-var currentUser = JSON.parse(localStorage.getItem('Parse/OxNzrzXTEVzRxH9qHpel84j4dD8QJs4aFUbmrWYc/currentUser'));
+import {jquery} from 'jquery'
 
-var name = currentUser.username;
+(function(){
+    var currentUser = JSON.parse(localStorage.getItem('Parse/OxNzrzXTEVzRxH9qHpel84j4dD8QJs4aFUbmrWYc/currentUser'));
 
-$('<h3 />').text('Hi, ' + name).prependTo('#main');
+    var name = currentUser.username;
+
+    $('<h3 />').text('Hi, ' + name).prependTo('#main');
+}());
+

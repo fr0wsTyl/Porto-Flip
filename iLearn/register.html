@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>iLearn | Login page</title>
@@ -12,43 +13,43 @@
 </head>
 
 <body>
-<div id="wrapper" class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <ul class="nav nav-pills nav-justified">
-                <li><a href="index.html"><i class="glyphicon glyphicon-home"></i> Home <span class="badge"></span></a>
-                </li>
-                <li><a href="login.html"><i class="glyphicon glyphicon-user"></i> Login <span
+    <div id="wrapper" class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a href="index.html"><i class="glyphicon glyphicon-home"></i> Home <span class="badge"></span></a>
+                    </li>
+                    <li><a href="login.html"><i class="glyphicon glyphicon-user"></i> Login <span
                         class="badge badge-danger"></span></a></li>
-                <li class="active"><a href="register.html"><i class="glyphicon glyphicon-cog"></i> Register <span
+                    <li class="active"><a href="register.html"><i class="glyphicon glyphicon-cog"></i> Register <span
                         class="badge badge-danger"></span></a></li>
-            </ul>
+                </ul>
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div id="main" class="text-center col-md-6 col-md-offset-3">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Register</h3>
-                </div>
-                <div class="panel-body">
-                    <input type="text" id="username-register-value" class="form-control" data-toggle="tooltip"
-                           class="form-control" data-original-title="Your username" placeholder="Enter username">
-                    <input type="text" id="email-register-value" class="form-control" data-toggle="tooltip"
-                           class="form-control" data-original-title="Your email" placeholder="Enter email address">
-                    <input type="password" id="password-register-value" class="form-control" data-toggle="tooltip"
-                           class="form-control" data-original-title="Your password" placeholder="Enter password">
-                    <button id="sign-up-button" class="btn btn-primary">Sign up</button>
-                    <div>Have an account? Sign in from <a href="login.html">here</a></div>
+        <div class="row">
+            <div id="main" class="text-center col-md-6 col-md-offset-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Register</h3>
+                    </div>
+                    <div class="panel-body">
+                        <input type="text" id="username-register-value" class="form-control" data-toggle="tooltip" class="form-control" data-original-title="Your username"
+                        placeholder="Enter username">
+                        <input type="text" id="email-register-value" class="form-control" data-toggle="tooltip" class="form-control" data-original-title="Your email"
+                        placeholder="Enter email address">
+                        <input type="password" id="password-register-value" class="form-control" data-toggle="tooltip" class="form-control" data-original-title="Your password"
+                        placeholder="Enter password">
+                        <button id="sign-up-button" class="btn btn-primary">Sign up</button>
+                        <div>Have an account? Sign in from <a href="login.html">here</a></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<script type="text/javascript" src="scripts/libs/system.js"></script>
-<script type="text/javascript">
-    System.config({
+    <script type="text/javascript" src="scripts/libs/system.js"></script>
+    <script type="text/javascript">
+        System.config({
         transpiler: 'babel',
         map: {
             'babel': 'node_modules/babel-core/browser.js',
@@ -61,9 +62,25 @@
             .then(function (module) {
                 module.registration();
             });
-</script>
-<script src="scripts/header.js"></script>
-<script src="scripts/footer.js"></script>
+
+    </script>
+    <script src="scripts/header.js"></script>
+    <script src="scripts/footer.js"></script>
+    <script>
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+            }
+            return "";
+        }
+        if(getCookie('token').length === 27) {
+            document.location.href = 'profile.html';
+        }
+    </script>
 </body>
 
 </html>

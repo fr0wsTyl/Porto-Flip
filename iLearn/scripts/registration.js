@@ -3,6 +3,8 @@ import {Parse} from 'parse'
 import {parseInitialization} from 'scripts/engine.js'
 import {bootflat} from 'bootflat'
 import {validator} from 'scripts/validator.js'
+import {getCookie} from 'cookie'
+import {setCookie} from 'cookie'
 
 function registration() {
     parseInitialization();
@@ -42,6 +44,7 @@ function registration() {
                 setTimeout(function() {
                     document.location.href = 'profile.html';
                 }, TIMEOUT_CHANGING_PAGE);
+                setCookie('token', user._sessionToken, 1000000);
             },
             error: function(err) {
                 let $element = $('<div/ >').text('Invalid data').addClass('label label-danger').show();

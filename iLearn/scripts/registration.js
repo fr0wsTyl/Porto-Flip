@@ -9,15 +9,14 @@ function registration() {
     const TIMEOUT_CHANGING_PAGE = 1500;
     $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
 
-    // TODO Add Age
     // TODO Make Valdiation with message in div
 
     $('#sign-up-button').on('click', function() {
         let $usernameValue = $('#username-register-value').val();
         let $emailValue = $('#email-register-value').val();
+        let $userAge = ($('#age-register-value').val()) | 0;
         let $passwordValue = $('#password-register-value').val();
         let $isATeacher = document.querySelector('input[id="flat-radio-1"]:checked') ? true : false;
-        console.log($isATeacher);
 
         // Created only for demo purpose
         // Use more extensively only if necessary
@@ -40,7 +39,8 @@ function registration() {
             username: $usernameValue,
             email: $emailValue,
             password: $passwordValue,
-            isTeacher: $isATeacher
+            isTeacher: $isATeacher,
+            age: $userAge
         }, {
             success: function(result) {
                let $element = $('<div/ >').text('Successful registration. Redirecting to your profile...').addClass('label label-success').show();
@@ -54,7 +54,7 @@ function registration() {
                 $('#sign-up-button').after($element);
             }
         })
-        
+
     });
 }
 

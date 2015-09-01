@@ -6,9 +6,9 @@
     var isTeacher = currentUser.isTeacher;
 
     if (isTeacher) {
-        $('<h3 />').text('Dear, ' + name).prependTo('#main');
+        $('<h3 />').text('Dear, ' + name + ' YOU ARE A TEACHER').prependTo('#main');
     } else {
-        $('<h3 />').text('Hi, ' + name).prependTo('#main');
+        $('<h3 />').text('Hi, ' + name + ' YOU ARE A STUDENT').prependTo('#main');
     }
 }());
 

@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap/bootflat.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="scripts/libs/jquery-2.1.4.min.js"></script>
 </head>
 
 <body>
@@ -62,10 +61,9 @@
             .then(function (module) {
                 module.registration();
             });
-
+    System.import('scripts/header.js');
+    System.import('scripts/footer.js');
     </script>
-    <script src="scripts/header.js"></script>
-    <script src="scripts/footer.js"></script>
     <script>
         function getCookie(cname) {
             var name = cname + "=";

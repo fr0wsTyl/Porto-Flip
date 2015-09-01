@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/social.css">
-    <script src="scripts/libs/jquery-2.1.4.min.js"></script>
 </head>
 
 <body>
@@ -72,9 +71,22 @@
         </div>
 
     </div>
-    <script src="scripts/header.js"></script>
-    <script src="scripts/social.js"></script>
-    <script src="scripts/footer.js"></script>
+
+    <script type="text/javascript" src="scripts/libs/system.js"></script>
+    <script type="text/javascript">
+        System.config({
+            transpiler: 'babel',
+            map: {
+                'babel': 'node_modules/babel-core/browser.js',
+                'jquery': 'scripts/libs/jquery-2.1.4.min.js',
+                'cookie': 'scripts/cookie.js'
+            }
+        });
+        System.import('scripts/header.js');
+        System.import('scripts/footer.js');
+        System.import('scripts/social.js');
+    </script>
+
     <script src="scripts/cookie.js"></script>
 
     <script>

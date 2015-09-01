@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2014.1.318/styles/kendo.common.min.css" />
     <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2014.1.318/styles/kendo.blueopal.min.css" />
-    <script src="scripts/libs/jquery-2.1.4.min.js"></script>
 </head>
 
 <body>
@@ -49,6 +48,8 @@
                     module.checkIfLogged();
                 });
         System.import('scripts/getusername.js');
+        System.import('scripts/header.js');
+        System.import('scripts/footer.js');
         // System.import('scripts/gridTable.js')
         //         .then(function(module) {
         //             module.addTable();
@@ -62,8 +63,9 @@
         //             module.logout;
         //         })
     </script>
+    <!--
     <script src="scripts/header.js"></script>
-    <script src="scripts/footer.js"></script>
+    <script src="scripts/footer.js"></script> -->
 </body>
 
 </html>

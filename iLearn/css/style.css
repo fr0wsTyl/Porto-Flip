@@ -5,3 +5,8 @@ body {
 input, button, div {
   margin-top: 10px;
 }
+.radio {
+  padding-left: 5%;
+  margin-top: 3%;
+  display: inline-block;
+}

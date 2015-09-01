@@ -7,11 +7,11 @@ import {validator} from 'scripts/validator.js'
 function registration() {
     parseInitialization();
     const TIMEOUT_CHANGING_PAGE = 1500;
-    $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+    $('[data-toggle="tooltip"]').tooltip({ 'placement': 'top' });
 
     // TODO Make Valdiation with message in div
 
-    $('#sign-up-button').on('click', function() {
+    $('#sign-up-button').on('click', function () {
         let $usernameValue = $('#username-register-value').val();
         let $emailValue = $('#email-register-value').val();
         let $userAge = ($('#age-register-value').val()) | 0;
@@ -42,22 +42,30 @@ function registration() {
             isTeacher: $isATeacher,
             age: $userAge
         }, {
-            success: function(result) {
-               let $element = $('<div/ >').text('Successful registration. Redirecting to your profile...').addClass('label label-success').show();
-                $('#sign-up-button').after($element);
-                setTimeout(function() {
-                    document.location.href = 'profile.html';
-                }, TIMEOUT_CHANGING_PAGE);
-            },
-            error: function(err) {
-                let $element = $('<div/ >').text('Invalid data').addClass('label label-danger').show();
-                $('#sign-up-button').after($element);
-            }
-        })
+                success: function (result) {
+                    Parse.User.logIn($usernameValue, $passwordValue, {
+                        success: function (user) {
+                            let $element = $('<div/ >').text('Successful registration. Redirecting to your profile...').addClass('label label-success').show();
+                            $('#sign-up-button').after($element);
+                            setTimeout(function () {
+                                document.location.href = 'profile.html';
+                            }, TIMEOUT_CHANGING_PAGE);
+                        },
+                        error: function (user, error) {
+                            let $element = $('<div/ >').text('Something happened').addClass('label label-danger').show();
+                            $('#sign-up-button').after($element);
+                        }
+                    });
+                },
+                error: function (err) {
+                    let $element = $('<div/ >').text('Invalid data').addClass('label label-danger').show();
+                    $('#sign-up-button').after($element);
+                }
+            })
 
     });
 }
 
 export {
-    registration
+registration
 }

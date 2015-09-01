@@ -83,7 +83,10 @@
 				'babel': 'node_modules/babel-core/browser.js',
 			}
 		});
-		System.import('scripts/profile-redirect.js');
+		System.import('scripts/profile-redirect.js')
+        .then(function (module) {
+            module.profileRedirect(true);
+        });
     </script>
 </body>
 

@@ -1,6 +1,5 @@
 <!doctype html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <title>iLearn | Profile page</title>
@@ -11,11 +10,12 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2014.1.318/styles/kendo.common.min.css" />
     <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2014.1.318/styles/kendo.blueopal.min.css" />
+    <script src="scripts/libs/jquery-2.1.4.min.js"></script>
 </head>
 
 <body>
     <div id="wrapper" class="container-fluid">
-        <div class="row">
+    <div class="row">
             <div class="col-md-12">
                 <ul class="nav nav-pills nav-justified">
                     <li class="active"><a href="index.html"><i class="glyphicon glyphicon-home"></i> Home <span class="badge"></span></a></li>
@@ -39,33 +39,25 @@
                 'babel': 'node_modules/babel-core/browser.js',
                 'jquery': 'scripts/libs/jquery-2.1.4.min.js',
                 'parse': 'scripts/libs/parse-1.5.0.min.js',
-                'bootflat': 'scripts/libs/site.min.js',
-                'cookie': 'scripts/cookie.js'
-			}
+                'kendo': 'http://kendo.cdn.telerik.com/2014.1.318/js/kendo.all.min.js'
+            }
         });
-        System.import('scripts/profile.js')
+        System.import('scripts/gridTable.js')
                 .then(function(module) {
-                    module.checkIfLogged();
+                    module.addTable();
                 });
-        System.import('scripts/getusername.js');
-        System.import('scripts/header.js');
-        System.import('scripts/footer.js');
-        // System.import('scripts/gridTable.js')
-        //         .then(function(module) {
-        //             module.addTable();
-        //         });
-        // System.import('scripts/courseGrid.js')
-        //         .then(function(module) {
-        //             module.courseTable();
-        //         });
-        // System.import('scripts/logout.js')
-        //         .then(function(module) {
-        //             module.logout;
-        //         })
+        System.import('scripts/courseGrid.js')
+                .then(function(module) {
+                    module.courseTable();
+                });
+        System.import('scripts/logout.js')
+                .then(function(module) {
+                    module.logout();
+                });
     </script>
-    <!--
+    <script src="scripts/getusername.js"></script>
     <script src="scripts/header.js"></script>
-    <script src="scripts/footer.js"></script> -->
+    <script src="scripts/footer.js"></script>
 </body>
 
 </html>

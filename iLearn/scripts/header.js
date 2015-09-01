@@ -1,5 +1,3 @@
-import {jquery} from 'jquery'
-
 (function () {
     $('head').append('<link rel="stylesheet" href="css/header.css"/>');
 

@@ -1,5 +1,3 @@
-import {jquery} from 'jquery'
-
 (function () {
 
     var $wrapper = $("#wrapper");

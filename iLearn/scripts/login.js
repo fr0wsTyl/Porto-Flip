@@ -2,8 +2,6 @@ import {jquery} from 'jquery'
 import {Parse} from 'parse'
 import {parseInitialization} from 'scripts/engine.js'
 import {bootflat} from 'bootflat'
-import {getCookie} from 'cookie'
-import {setCookie} from 'cookie'
 
 function login(element) {
     parseInitialization();
@@ -21,8 +19,6 @@ function login(element) {
                 setTimeout(function() {
                     document.location.href = 'profile.html';
                 }, TIMEOUT_CHANING_PAGE);
-                setCookie('token', user._sessionToken, 1000000);
-                setCookie('userID', user.id, 1000000);
             },
             error: function(user, error) {
                 let $element = $('<div/ >').text('Invalid username or password').addClass('label label-danger').show();

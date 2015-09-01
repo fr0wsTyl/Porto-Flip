@@ -7,6 +7,7 @@ parseInitialization();
 
 	$('#logout').on('click', function(){
 		Parse.User.logOut();
+		localStorage.clear();
 	});
 }
 export {

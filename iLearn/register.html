@@ -40,6 +40,15 @@
                         placeholder="Enter email address">
                         <input type="password" id="password-register-value" class="form-control" data-toggle="tooltip" class="form-control" data-original-title="Your password"
                         placeholder="Enter password">
+                        <div class="radio">
+                            <div class="iradio_flat checked" style="position: relative;">
+                                <input name="type-of-user" type="radio" id="flat-radio-1" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                            
+                             <input name="type-of-user" type="radio" id="flat-radio-2" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins></div>
+                            
+                            <label for="flat-radio-1" class="">Teacher</label>
+                            <label for="flat-radio-2" class="">Student</label>
+                        </div>
                         <button id="sign-up-button" class="btn btn-primary">Sign up</button>
                         <div>Have an account? Sign in from <a href="login.html">here</a></div>
                     </div>
@@ -66,7 +75,6 @@
         .then(function (module) {
             module.profileRedirect(true);
         });
-
     </script>
     <script src="scripts/header.js"></script>
     <script src="scripts/footer.js"></script>

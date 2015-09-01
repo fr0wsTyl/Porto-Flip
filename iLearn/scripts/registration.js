@@ -13,6 +13,8 @@ function registration() {
         let $usernameValue = $('#username-register-value').val();
         let $emailValue = $('#email-register-value').val();
         let $passwordValue = $('#password-register-value').val();
+        let $isATeacher = document.querySelector('input[id="flat-radio-1"]:checked') ? true : false;
+        console.log($isATeacher);
 
         // Created only for demo purpose
         // Use more extensively only if necessary
@@ -30,11 +32,12 @@ function registration() {
 
         let UserObject = Parse.Object.extend('User');
         let currentUser = new UserObject();
-        
+
         currentUser.save({
             username: $usernameValue,
             email: $emailValue,
-            password: $passwordValue
+            password: $passwordValue,
+            isTeacher: $isATeacher
         }, {
             success: function(result) {
                let $element = $('<div/ >').text('Successful registration. Redirecting to your profile...').addClass('label label-success').show();
@@ -48,6 +51,7 @@ function registration() {
                 $('#sign-up-button').after($element);
             }
         })
+        
     });
 }
 

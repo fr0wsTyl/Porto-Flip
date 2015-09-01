@@ -9,6 +9,9 @@ function registration() {
     const TIMEOUT_CHANGING_PAGE = 1500;
     $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
 
+    // TODO Add Age
+    // TODO Make Valdiation with message in div
+
     $('#sign-up-button').on('click', function() {
         let $usernameValue = $('#username-register-value').val();
         let $emailValue = $('#email-register-value').val();

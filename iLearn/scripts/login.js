@@ -16,6 +16,14 @@ function login(element) {
             success: function(user) {
                 let $element = $('<div/ >').text('Successful login. Redirecting to your profile...').addClass('label label-success').show();
                 $('#sign-in-button').after($element);
+                $('#username-login-value').remove();
+                $('#password-login-value').remove();
+                let $elementLogin = $('<div class="form-group has-success has-feedback"><input type="text" class="form-control" id="login-success"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
+                let $elementPassword = $('<div class="form-group has-success has-feedback"><input type="password" class="form-control" id="password-success"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
+                $('.panel-body').prepend($elementLogin);
+                $($elementLogin).append($elementPassword);
+                $('#login-success').val($usernameValue);
+                $('#password-success').val($passwordValue);
                 setTimeout(function() {
                     document.location.href = 'profile.html';
                 }, TIMEOUT_CHANING_PAGE);

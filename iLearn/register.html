@@ -78,6 +78,8 @@
             'bootflat': 'scripts/libs/site.min.js'
         }
     });
+    System.import('scripts/header.js');
+    System.import('scripts/footer.js');
     System.import('scripts/registration.js')
             .then(function (module) {
                 module.registration();
@@ -87,8 +89,6 @@
             module.profileRedirect(true);
         });
     </script>
-    <script src="scripts/header.js"></script>
-    <script src="scripts/footer.js"></script>
 </body>
 
 </html>

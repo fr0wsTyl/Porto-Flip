@@ -72,21 +72,21 @@
         </div>
 
     </div>
-    <script src="scripts/header.js"></script>
-    <script src="scripts/social.js"></script>
     <script src="scripts/footer.js"></script>
     <script type="text/javascript" src="scripts/libs/system.js"></script>
     <script type="text/javascript">
         System.config({
 			transpiler: 'babel',
 			map: {
-				'babel': 'node_modules/babel-core/browser.js',
+				'babel': 'node_modules/babel-core/browser.js'
 			}
 		});
 		System.import('scripts/profile-redirect.js')
         .then(function (module) {
             module.profileRedirect(true);
         });
+        System.import('scripts/header.js');
+        System.import('scripts/footer.js');
     </script>
 </body>
 

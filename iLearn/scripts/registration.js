@@ -46,20 +46,20 @@ function registration() {
                     Parse.User.logIn($usernameValue, $passwordValue, {
                         success: function (user) {
                             let $element = $('<div/ >').text('Successful registration. Redirecting to your profile...').addClass('label label-success').show();
-                            $('#sign-up-button').after($element);
+                            $('#result').html($element);
                             setTimeout(function () {
                                 document.location.href = 'profile.html';
                             }, TIMEOUT_CHANGING_PAGE);
                         },
                         error: function (user, error) {
                             let $element = $('<div/ >').text('Something happened').addClass('label label-danger').show();
-                            $('#sign-up-button').after($element);
+                            $('#result').html($element);
                         }
                     });
                 },
                 error: function (err) {
                     let $element = $('<div/ >').text('Invalid data').addClass('label label-danger').show();
-                    $('#sign-up-button').after($element);
+                    $('#result').html($element);
                 }
             })
 

@@ -15,7 +15,7 @@ function login(element) {
         Parse.User.logIn($usernameValue, $passwordValue, {
             success: function(user) {
                 let $element = $('<div/ >').text('Successful login. Redirecting to your profile...').addClass('label label-success').show();
-                $('#sign-in-button').after($element);
+                $('#result').html($element);
                 $('#username-login-value').remove();
                 $('#password-login-value').remove();
                 let $elementLogin = $('<div class="form-group has-success has-feedback"><input type="text" class="form-control" id="username-login-value"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
@@ -30,7 +30,7 @@ function login(element) {
             },
             error: function(user, error) {
                 let $element = $('<div/ >').text('Invalid username or password').addClass('label label-danger').show();
-                $('#sign-in-button').after($element);
+                $('#result').html($element);
                 $('#username-login-value').remove();
                 $('#password-login-value').remove();
                 let $elementLogin = $('<div class="form-group has-error has-feedback"><input type="text" class="form-control" id="username-login-value"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');

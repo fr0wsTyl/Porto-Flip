@@ -8,3 +8,6 @@ input, button, div {
 .radio {
   display: inline-block;
 }
+#choose-profile-type {
+  font-weight: bold;
+}

@@ -16,7 +16,7 @@ function registration() {
         let $emailValue = $('#email-register-value').val();
         let $userAge = ($('#age-register-value').val()) | 0;
         let $passwordValue = $('#password-register-value').val();
-        let $isATeacher = document.querySelector('input[id="flat-radio-1"]:checked') ? true : false;
+        let $isATeacher = $('#flat-radio-1').is(':checked');
 
         // Created only for demo purpose
         // Use more extensively only if necessary

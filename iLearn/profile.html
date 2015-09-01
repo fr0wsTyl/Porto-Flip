@@ -42,6 +42,7 @@
                 'kendo': 'http://kendo.cdn.telerik.com/2014.1.318/js/kendo.all.min.js'
             }
         });
+        System.import('scripts/getusername.js');
         System.import('scripts/gridTable.js')
                 .then(function(module) {
                     module.addTable();
@@ -59,7 +60,6 @@
             module.profileRedirect(false);
         });
     </script>
-    <script src="scripts/getusername.js"></script>
     <script src="scripts/header.js"></script>
     <script src="scripts/footer.js"></script>
 </body>

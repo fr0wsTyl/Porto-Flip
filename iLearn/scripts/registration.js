@@ -5,6 +5,12 @@ import {bootflat} from 'bootflat'
 import {validator} from 'scripts/validator.js'
 import {handleError} from 'scripts/error-handler.js'
 
+function clearNotNeededElements() {
+    $("*[id*='alert']").each(function() {
+        $(this).hide();
+    });
+}
+
 function registration() {
     parseInitialization();
     const TIMEOUT_CHANGING_PAGE = 1600;
@@ -43,6 +49,8 @@ function registration() {
             }
             return
         }
+
+        clearNotNeededElements();
 
         let UserObject = Parse.Object.extend('User');
         let currentUser = new UserObject();

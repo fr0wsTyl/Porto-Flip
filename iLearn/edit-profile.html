@@ -30,6 +30,16 @@
         <div class="row">
             <div id="main" class="text-center col-md-6 col-md-offset-3 well">
                 <h1>Profile edit</h1>
+                <div class="panel-body">
+                        <input type="text" id="email-register-value" class="form-control" data-toggle="tooltip" class="form-control" data-original-title="Your email"
+                        placeholder="Enter new email address">
+                        <input type="text" id="age-register-value" class="form-control" data-toggle="tooltip" class="form-control" data-original-title="Your age"
+                               placeholder="Enter your age">
+                        <input type="password" id="password-register-value" class="form-control" data-toggle="tooltip" class="form-control" data-original-title="Your password"
+                        placeholder="Enter password">
+                        <button id="sign-up-button" class="btn btn-primary center-block">Save changes</button>
+                        <div id="result"></div>
+                    </div>
             </div>
         </div>
         <div id="coursegrid"></div>
@@ -43,7 +53,8 @@
                 'babel': 'node_modules/babel-core/browser.js',
                 'jquery': 'scripts/libs/jquery-2.1.4.min.js',
                 'parse': 'scripts/libs/parse-1.5.0.min.js',
-                'kendo': 'http://kendo.cdn.telerik.com/2014.1.318/js/kendo.all.min.js'
+                'kendo': 'http://kendo.cdn.telerik.com/2014.1.318/js/kendo.all.min.js',
+                'bootflat': 'scripts/libs/site.min.js'
             }
         });
         System.import('scripts/header.js');

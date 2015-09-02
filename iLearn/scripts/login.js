@@ -1,7 +1,7 @@
-import {jquery} from 'jquery'
-import {Parse} from 'parse'
-import {parseInitialization} from 'scripts/engine.js'
-import {bootflat} from 'bootflat'
+import {jquery} from 'jquery';
+import {Parse} from 'parse';
+import {parseInitialization} from 'scripts/engine.js';
+import {bootflat} from 'bootflat';
 
 function login(element) {
     parseInitialization();

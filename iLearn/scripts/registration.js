@@ -54,26 +54,7 @@ function registration() {
 
         let UserObject = Parse.Object.extend('User');
         let currentUser = new UserObject();
-/*
-        function throwError() {
-            $('#username-register-value').remove();
-            $('#email-register-value').remove();
-            $('#age-register-value').remove();
-            $('#password-register-value').remove();
-            let $elementRegister = $('<div class="form-group has-error has-feedback"><input placeholder="Enter username" type="text" class="form-control" id="username-register-value"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
-            let $elementEmail = $('<div class="form-group has-error has-feedback"><input placeholder="Enter email address" type="text" class="form-control" id="email-register-value"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
-            let $elementAge = $('<div class="form-group has-error has-feedback"><input placeholder="Enter your age" type="text" class="form-control" id="age-register-value"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
-            let $elementPassword = $('<div class="form-group has-error has-feedback"><input placeholder="Enter password" type="password" class="form-control" id="password-register-value"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
-            $('.panel-body').prepend($elementRegister);
-            $($elementRegister).append($elementEmail);
-            $elementEmail.append($elementAge);
-            $elementAge.append($elementPassword);
-            $('#username-register-value').val($usernameValue);
-            $('#email-register-value').val($emailValue);
-            $('#age-register-value').val($userAge);
-            $('#password-register-value').val($passwordValue);
-        }
-*/
+
         currentUser.save({
             username: $usernameValue,
             email: $emailValue,
@@ -85,8 +66,7 @@ function registration() {
                     Parse.User.logIn($usernameValue, $passwordValue, {
                         success: function (user) {
                              let $element = $('<div/ >').text('Successful registration. Redirecting to your profile...').addClass('label label-success').show();
-
-                            $('#result').html($element);
+                            $('#result').html(element);
                             $('#username-register-value').remove();
                             $('#email-register-value').remove();
                             $('#age-register-value').remove();
@@ -103,7 +83,6 @@ function registration() {
                             $('#email-register-value').val($emailValue);
                             $('#age-register-value').val($userAge);
                             $('#password-register-value').val($passwordValue);
-
                             setTimeout(function () {
                                 document.location.href = 'profile.html';
                             }, TIMEOUT_CHANGING_PAGE);
@@ -111,20 +90,38 @@ function registration() {
                         error: function (user, error) {
                             let $element = $('<div/ >').text('Something happened').addClass('label label-danger').show();
                             $('#result').html($element);
-                            // throwError();
                         }
                     });
                 },
                 error: function (err) {
                     let $element = $('<div/ >').text('Invalid data').addClass('label label-danger').show();
                     $('#result').html($element);
-                    // throwError();
                 }
             })
-
     });
 }
 
 export {
-registration
+    registration
 }
+
+/*
+ function throwError() {
+ $('#username-register-value').remove();
+ $('#email-register-value').remove();
+ $('#age-register-value').remove();
+ $('#password-register-value').remove();
+ let $elementRegister = $('<div class="form-group has-error has-feedback"><input placeholder="Enter username" type="text" class="form-control" id="username-register-value"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
+ let $elementEmail = $('<div class="form-group has-error has-feedback"><input placeholder="Enter email address" type="text" class="form-control" id="email-register-value"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
+ let $elementAge = $('<div class="form-group has-error has-feedback"><input placeholder="Enter your age" type="text" class="form-control" id="age-register-value"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
+ let $elementPassword = $('<div class="form-group has-error has-feedback"><input placeholder="Enter password" type="password" class="form-control" id="password-register-value"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
+ $('.panel-body').prepend($elementRegister);
+ $($elementRegister).append($elementEmail);
+ $elementEmail.append($elementAge);
+ $elementAge.append($elementPassword);
+ $('#username-register-value').val($usernameValue);
+ $('#email-register-value').val($emailValue);
+ $('#age-register-value').val($userAge);
+ $('#password-register-value').val($passwordValue);
+ }
+ */

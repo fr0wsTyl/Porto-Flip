@@ -53,8 +53,9 @@ function courseTable() {
             query.equalTo("coursename", courseToJoin);
             query.first({
                 success: function(result) {
-                    let currentUser = Parse.User.current();
-                    result.add('students', currentUser);
+                    let currentUserData = JSON.parse(localStorage.getItem('Parse/OxNzrzXTEVzRxH9qHpel84j4dD8QJs4aFUbmrWYc/currentUser'));
+                    let currentUserId = currentUserData.objectId;
+                    result.add('students', currentUserId);
                     result.save();
                 },
                 error: function(error) {

@@ -10,6 +10,7 @@ import {parseInitialization} from 'scripts/engine.js';
 	let $emailInput = $('#email-edit-value');
 	let $ageInput = $('#age-edit-value');
 	let $passwordInput = $('#password-edit-value');
+	let $saveChanges = $('#save-changes-button');
 	
 	let currentUser = localStorage.getItem('Parse/OxNzrzXTEVzRxH9qHpel84j4dD8QJs4aFUbmrWYc/currentUser');
 	let username = JSON.parse(currentUser).username;
@@ -21,12 +22,18 @@ import {parseInitialization} from 'scripts/engine.js';
 		success: function (results) {
 			$emailInput.val(results[0].attributes.email);
 			$ageInput.val(results[0].attributes.age);
-			console.log();
-		},
-		error: function (error) {
-			alert("Error: " + error.code + " " + error.message);
 		}
 	});
+	
+	$saveChanges.on('click', function () {
+		let $emailInputValue = $('#email-edit-value').val();
+		let $ageInputValue = $('#age-edit-value').val();
+		let $passwordInputValue = $('#password-edit-value').val();
 
-
+		var currentUser = Parse.User.current();
+		if (currentUser) {
+			currentUser.attributes.email = $emailInputValue;
+			currentUser.attributes.age = $ageInputValue;
+		}
+	});
 })();

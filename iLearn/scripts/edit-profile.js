@@ -2,6 +2,8 @@ import {jquery} from 'jquery';
 import {Parse} from 'parse';
 import {bootflat} from 'bootflat';
 import {parseInitialization} from 'scripts/engine.js';
+import {validator} from 'scripts/validator.js'
+import {handleError} from 'scripts/error-handler.js'
 
 (function () {
 	parseInitialization();
@@ -51,6 +53,24 @@ import {parseInitialization} from 'scripts/engine.js';
 		let $emailInputValue = $('#email-edit-value').val();
 		let $ageInputValue = $('#age-edit-value').val();
 		let $passwordInputValue = $('#password-edit-value').val();
+
+		try {
+			validator.validateUserMail($emailInputValue);
+			validator.validateUserAge($ageInputValue);
+			validator.validateUserPasswordLength($passwordInputValue);
+		} catch (err) {
+			if (err.name === 'InputMailError') {
+				handleError('#email-edit-value', err.message, $emailInputValue);
+			}
+			if (err.name === 'InputAgeError') {
+				handleError('#age-edit-value', err.message, $ageInputValue);
+			}
+			if (err.name === 'InputPasswordLengthError') {
+				handleError('#password-edit-value', err.message, $passwordInputValue);
+			}
+			return
+		}
+
 		var currentUser = Parse.User.current();
 		if (currentUser) {
 			if ($passwordInputValue.length > 0) {

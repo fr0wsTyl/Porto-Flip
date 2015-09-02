@@ -57,6 +57,10 @@ function courseTable() {
                     let currentUserId = currentUserData.objectId;
                     result.add('students', currentUserId);
                     result.save();
+                    $('<div />').addClass('alert alert-success alert-dismissable')
+                        .html('You have successfully joined ' + courseToJoin)
+                        .prependTo('#coursegrid')
+                        .fadeOut(4000);
                 },
                 error: function(error) {
                     console.log("Error: " + error.code + " " + error.message);

@@ -26,11 +26,11 @@ var validator = (function () {
         },
         'validateUserMail': {
             value: function (input) {
-                var pattern = /[A-Za-z0-9_\-\+]+@[A-Za-z0-9\-]+\.([A-Za-z]{2,3})(?:\.[a-z]{2})?/;
+                var pattern = /[A-Za-z0-9_\-\+]+@[A-Za-z0-9\-]+\.([A-Za-z]{2,3})(?:\.[a-z]{2})?/g;
                 if (!pattern.test(input)) {
                     throw {
                         name: 'InputMailError',
-                        message: 'Ypu must provide a valid e-mail adress'
+                        message: 'You must provide a valid e-mail address'
                     };
                 }
             }

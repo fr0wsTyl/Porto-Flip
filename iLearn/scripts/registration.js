@@ -3,13 +3,12 @@ import {Parse} from 'parse'
 import {parseInitialization} from 'scripts/engine.js'
 import {bootflat} from 'bootflat'
 import {validator} from 'scripts/validator.js'
+import {handleError} from 'scripts/error-handler.js'
 
 function registration() {
     parseInitialization();
     const TIMEOUT_CHANGING_PAGE = 1600;
     $('[data-toggle="tooltip"]').tooltip({ 'placement': 'top' });
-
-    // TODO Make Valdiation with message in div
 
     $('#sign-up-button').on('click', function () {
         let $usernameValue = $('#username-register-value').val();
@@ -18,23 +17,36 @@ function registration() {
         let $passwordValue = $('#password-register-value').val();
         let $isATeacher = $('#flat-radio-1').is(':checked');
 
-        // Created only for demo purpose
-        // Use more extensively only if necessary
         try {
             validator.validateUserName($usernameValue);
             validator.validateUserNameLength($usernameValue);
+            validator.validateUserMail($emailValue);
+            validator.validateUserAge($userAge);
+            validator.validateUserPasswordLength($passwordValue);
         } catch (err) {
             if (err.name === 'InputNameError') {
-                console.log(err.message);
+                handleError('#username-register-value', err.message, $usernameValue);
+
             }
             if (err.name === 'InputNameLengthError') {
-                console.log(err.message);
+                handleError('#username-register-value', err.message, $usernameValue);
+
             }
+            if (err.name === 'InputMailError') {
+                handleError('#email-register-value', err.message, $emailValue);
+            }
+            if (err.name === 'InputAgeError') {
+                handleError('#age-register-value', err.message, $userAge);
+            }
+            if (err.name === 'InputPasswordLengthError') {
+                handleError('#password-register-value', err.message, $passwordValue);
+            }
+            return
         }
 
         let UserObject = Parse.Object.extend('User');
         let currentUser = new UserObject();
-
+/*
         function throwError() {
             $('#username-register-value').remove();
             $('#email-register-value').remove();
@@ -53,7 +65,7 @@ function registration() {
             $('#age-register-value').val($userAge);
             $('#password-register-value').val($passwordValue);
         }
-
+*/
         currentUser.save({
             username: $usernameValue,
             email: $emailValue,
@@ -64,7 +76,8 @@ function registration() {
                 success: function (result) {
                     Parse.User.logIn($usernameValue, $passwordValue, {
                         success: function (user) {
-                            let $element = $('<div/ >').text('Successful registration. Redirecting to your profile...').addClass('label label-success').show();
+                             let $element = $('<div/ >').text('Successful registration. Redirecting to your profile...').addClass('label label-success').show();
+
                             $('#result').html($element);
                             $('#username-register-value').remove();
                             $('#email-register-value').remove();
@@ -82,6 +95,7 @@ function registration() {
                             $('#email-register-value').val($emailValue);
                             $('#age-register-value').val($userAge);
                             $('#password-register-value').val($passwordValue);
+
                             setTimeout(function () {
                                 document.location.href = 'profile.html';
                             }, TIMEOUT_CHANGING_PAGE);
@@ -89,14 +103,14 @@ function registration() {
                         error: function (user, error) {
                             let $element = $('<div/ >').text('Something happened').addClass('label label-danger').show();
                             $('#result').html($element);
-                            throwError();
+                            // throwError();
                         }
                     });
                 },
                 error: function (err) {
                     let $element = $('<div/ >').text('Invalid data').addClass('label label-danger').show();
                     $('#result').html($element);
-                    throwError();
+                    // throwError();
                 }
             })
 

@@ -17,7 +17,8 @@ function addTable() {
                 $("#grid").kendoGrid({
                     columns: [
                         {title: 'User Name', field: 'username'},
-                        {title: 'e-Mail', field: 'email'}
+                        {title: 'e-Mail', field: 'email'},
+                        {title: 'Age', field: 'age'}
                     ],
                     dataSource: {
                         data: usersDataBase,

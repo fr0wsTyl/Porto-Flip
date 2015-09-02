@@ -53,7 +53,7 @@ function courseTable() {
             query.equalTo("coursename", courseToJoin);
             query.first({
                 success: function(result) {
-                    var currentUser = Parse.User.current();
+                    let currentUser = Parse.User.current();
                     result.add('students', currentUser);
                     result.save();
                 },

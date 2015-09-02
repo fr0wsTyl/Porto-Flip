@@ -53,10 +53,8 @@ function courseTable() {
             query.equalTo("coursename", courseToJoin);
             query.first({
                 success: function(result) {
-                    // TODO: IMPORTANT How to get the current user ???
-                    let currentStudent = undefined;
-                    console.log(currentStudentName);
-                    result.add('students', currentStudent);
+                    var currentUser = Parse.User.current();
+                    result.add('students', currentUser);
                     result.save();
                 },
                 error: function(error) {

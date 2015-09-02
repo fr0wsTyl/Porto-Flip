@@ -46,7 +46,10 @@
         });
         System.import('scripts/header.js');
         System.import('scripts/footer.js');
-        System.import('scripts/getusername.js');
+        System.import('scripts/getusername.js')
+                .then(function (module) {
+                    module.sayHello();
+                });
         System.import('scripts/gridTable.js')
                 .then(function(module) {
                     module.addTable();

@@ -11,9 +11,3 @@ input, button, div {
 #choose-profile-type {
   font-weight: bold;
 }
-.footer {
-  position:fixed;
-   left:0px;
-   bottom:0px;
-   width:100%;
-}

@@ -7,6 +7,8 @@ parseInitialization();
 var query = new Parse.Query('Course');
 
 function courseTable() {
+
+
     $('#allCourses').on('click', function() {
         query.find({
             success: function(results) {

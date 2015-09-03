@@ -66,6 +66,7 @@ function registration() {
                     Parse.User.logIn($usernameValue, $passwordValue, {
                         success: function (user) {
                             let $element = $('<div/ >').text('Successful registration. Redirecting to your profile...').addClass('label label-success').show();
+                            // TODO Throws an Error fix the following line:
                             $('#result').html(element);
                             $('#username-register-value').remove();
                             $('#email-register-value').remove();

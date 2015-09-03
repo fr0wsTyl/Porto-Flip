@@ -5,63 +5,66 @@ import {bootflat} from 'bootflat'
 import {validator} from 'scripts/validator.js'
 import {handleError} from 'scripts/error-handler.js'
 
-function clearNotNeededElements() {
-    $("*[id*='alert']").each(function() {
-        $(this).hide();
-    });
-}
-
 function registration() {
-    parseInitialization();
-    const TIMEOUT_CHANGING_PAGE = 1600;
-    $('[data-toggle="tooltip"]').tooltip({ 'placement': 'top' });
 
-    $('#sign-up-button').on('click', function () {
-        let $usernameValue = $('#username-register-value').val();
-        let $emailValue = $('#email-register-value').val();
-        let $userAge = ($('#age-register-value').val()) | 0;
-        let $passwordValue = $('#password-register-value').val();
-        let $isATeacher = $('#flat-radio-1').is(':checked');
+    function clearNotNeededElements() {
+        $("*[id*='alert']").each(function() {
+            $(this).hide();
+        });
+    }
 
-        try {
-            validator.validateUserName($usernameValue);
-            validator.validateUserNameLength($usernameValue);
-            validator.validateUserMail($emailValue);
-            validator.validateUserAge($userAge);
-            validator.validateUserPasswordLength($passwordValue);
-        } catch (err) {
-            if (err.name === 'InputNameError') {
-                handleError('#username-register-value', err.message, $usernameValue);
+    $('#content').html('').load('./content/register-panel.html', function() {
 
+        parseInitialization();
+        const TIMEOUT_CHANGING_PAGE = 1600;
+        $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+
+        $('#sign-up-button').on('click', function () {
+            let $usernameValue = $('#username-register-value').val();
+            let $emailValue = $('#email-register-value').val();
+            let $userAge = ($('#age-register-value').val()) | 0;
+            let $passwordValue = $('#password-register-value').val();
+            let $isATeacher = $('#flat-radio-1').is(':checked');
+
+            try {
+                validator.validateUserName($usernameValue);
+                validator.validateUserNameLength($usernameValue);
+                validator.validateUserMail($emailValue);
+                validator.validateUserAge($userAge);
+                validator.validateUserPasswordLength($passwordValue);
+            } catch (err) {
+                if (err.name === 'InputNameError') {
+                    handleError('#username-register-value', err.message, $usernameValue);
+
+                }
+                if (err.name === 'InputNameLengthError') {
+                    handleError('#username-register-value', err.message, $usernameValue);
+
+                }
+                if (err.name === 'InputMailError') {
+                    handleError('#email-register-value', err.message, $emailValue);
+                }
+                if (err.name === 'InputAgeError') {
+                    handleError('#age-register-value', err.message, $userAge);
+                }
+                if (err.name === 'InputPasswordLengthError') {
+                    handleError('#password-register-value', err.message, $passwordValue);
+                }
+                return
             }
-            if (err.name === 'InputNameLengthError') {
-                handleError('#username-register-value', err.message, $usernameValue);
 
-            }
-            if (err.name === 'InputMailError') {
-                handleError('#email-register-value', err.message, $emailValue);
-            }
-            if (err.name === 'InputAgeError') {
-                handleError('#age-register-value', err.message, $userAge);
-            }
-            if (err.name === 'InputPasswordLengthError') {
-                handleError('#password-register-value', err.message, $passwordValue);
-            }
-            return
-        }
+            clearNotNeededElements();
 
-        clearNotNeededElements();
+            let UserObject = Parse.Object.extend('User');
+            let currentUser = new UserObject();
 
-        let UserObject = Parse.Object.extend('User');
-        let currentUser = new UserObject();
-
-        currentUser.save({
-            username: $usernameValue,
-            email: $emailValue,
-            password: $passwordValue,
-            isTeacher: $isATeacher,
-            age: $userAge
-        }, {
+            currentUser.save({
+                username: $usernameValue,
+                email: $emailValue,
+                password: $passwordValue,
+                isTeacher: $isATeacher,
+                age: $userAge
+            }, {
                 success: function (result) {
                     Parse.User.logIn($usernameValue, $passwordValue, {
                         success: function (user) {
@@ -99,7 +102,8 @@ function registration() {
                     $('#result').html($element);
                 }
             })
-    });
+        });
+    })
 }
 
 export {

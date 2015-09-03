@@ -12,7 +12,22 @@ Users can choose wheather to sign up as students or teachers.
 The platform will give them access to study resources of the courses they 
 are signed up to. 
 
+***
+Public link to our project! 
+<a href="https://github.com/fr0wsTyl/Porto-Flip/tree/master/iLearn" alt="Porto flip repo">Github for Team Porto Flip</a>
+***
 
+## Browser Compatibility
+  
+**IE 10+**
+
+**Chrome**  
+
+**Firefox** 
+ 
+**Safari** 
+
+**Opera**
 
 Project functions and requirements:
 

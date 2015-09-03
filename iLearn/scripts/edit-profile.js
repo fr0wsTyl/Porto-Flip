@@ -3,7 +3,7 @@ import {Parse} from 'parse';
 import {bootflat} from 'bootflat';
 import {parseInitialization} from 'scripts/engine.js';
 import {validator} from 'scripts/validator.js'
-import {handleError} from 'scripts/error-handler.js'
+import {handleError} from 'scripts/error-handler.js';
 
 (function () {
 	parseInitialization();

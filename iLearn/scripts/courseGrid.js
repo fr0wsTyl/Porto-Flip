@@ -3,11 +3,10 @@ import {Parse} from 'parse'
 import {Kendo} from 'kendo'
 import {parseInitialization} from 'scripts/engine.js'
 
-parseInitialization();
-var query = new Parse.Query('Course');
-
 function courseTable() {
 
+    parseInitialization();
+    var query = new Parse.Query('Course');
 
     $('#allCourses').on('click', function() {
         query.find({

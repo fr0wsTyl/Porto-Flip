@@ -10,18 +10,30 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2014.1.318/styles/kendo.common.min.css" />
     <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2014.1.318/styles/kendo.blueopal.min.css" />
+    <link rel="stylesheet" href="css/social.css">
     <script src="scripts/libs/jquery-2.1.4.min.js"></script>
 </head>
 
 <body>
     <div id="wrapper" class="container-fluid">
         <div id="nav">
-
         </div>
+
         <div id="content">
         </div>
-        <div id="coursegrid"></div>
-        <div id="grid"></div>
+
+        <div id="ss_menu" style="transform: rotate(-2340deg);">
+            <div id="facebook"> <i class="fa fa-facebook-official"></i> </div>
+            <div id="twitter"> <i class="fa fa-twitter"></i> </div>
+            <div id="linkedin"> <i class="fa fa-linkedin"></i> </div>
+            <div id="googleplus"> <i class="fa fa-google-plus"></i> </div>
+            <div class="menu">
+                <div class="share" id="ss_toggle" data-rot="180">
+                    <div class="circle"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="scripts/libs/system.js"></script>
     <script type="text/javascript" src="scripts/libs/sammy-latest.min.js"></script>
@@ -45,6 +57,7 @@
                 .then(function (module) {
                     module.sayHello();
                 });
+        System.import('scripts/social.js');
         System.import('scripts/logout.js')
                 .then(function(module) {
                     module.logout();

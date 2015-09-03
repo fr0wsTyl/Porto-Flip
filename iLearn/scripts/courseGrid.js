@@ -15,7 +15,7 @@ function courseTable() {
                     results.forEach(function(item) {
                         courseDataBase.push(item._serverData);
                     });
-                    $("#coursegrid").kendoGrid({
+                    $("#content").html('').kendoGrid({
                         columns: [{
                             title: 'Course',
                             field: 'coursename'

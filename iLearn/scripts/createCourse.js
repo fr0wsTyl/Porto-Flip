@@ -4,7 +4,7 @@ import {parseInitialization} from 'scripts/engine.js'
 import {bootflat} from 'bootflat'
 
 function createCourse() {
-    $('#content').load('./content/create-course.html', function() {
+    $('#content').html('').load('./content/create-course.html', function() {
         parseInitialization();
 
         $('#create-course-button').on('click', function() {

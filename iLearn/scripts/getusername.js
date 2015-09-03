@@ -10,16 +10,16 @@ function isTeacher() {
     return isTeacher;
 }
 
-function sayHello() {
-    if (isTeacher()) {
-        $('<h3 />').text('Hello! -@YOU ARE A TEACHER').prependTo('#main');
-    } else {
-        $('<h3 />').text('Hello! -@YOU ARE A STUDENT').prependTo('#main');
-    }
-}
+// function sayHello() {
+//     if (isTeacher()) {
+//         $('<h3 />').text('Hello! -@YOU ARE A TEACHER').prependTo('#main');
+//     } else {
+//         $('<h3 />').text('Hello! -@YOU ARE A STUDENT').prependTo('#main');
+//     }
+// }
 
 export {
     isTeacher,
-    sayHello
+    // sayHello
 }
 

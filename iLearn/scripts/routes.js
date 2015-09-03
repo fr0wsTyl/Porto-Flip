@@ -1,15 +1,18 @@
 import {jquery} from 'jquery';
-// import {Sammy} from 'scripts/libs/sammy-latest.min.js';
 
 (function () {
-	console.log(sammy);
-	var sammy = Sammy('#content', function () {
-		
+	var sammyApp = Sammy('#content', function () {
 		this.get('#/', function () {
-			console.log('here');
+			$('#content').html('');
 		});
-	})
-	
-	sammy.run('#/');
-	
+		this.get('#/edit-profile', function () {
+			$('#content').load('./content/edit-profile.html');
+			// var fileref = document.createElement('<script>');
+			// fileref.setAttribute("id", "edit-profile-script");
+			// fileref.setAttribute("type", "text/javascript");
+			// fileref.setAttribute("src", 'scripts/edit-profile.js');
+			// $('body').append(fileref);
+		});
+	});
+	sammyApp.run('#/');
 })();

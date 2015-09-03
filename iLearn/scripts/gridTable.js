@@ -3,10 +3,10 @@ import {Parse} from 'parse'
 import {Kendo} from 'kendo'
 import {parseInitialization} from 'scripts/engine.js'
 
-parseInitialization();
-var query = new Parse.Query('User');
-
 function addTable() {
+    parseInitialization();
+    var query = new Parse.Query('User');
+
     query.find({
         success: function (results) {
             if (results) {
@@ -14,7 +14,7 @@ function addTable() {
                 results.forEach(function(item) {
                    usersDataBase.push(item._serverData);
                 });
-                $("#grid").kendoGrid({
+                $("#content").html('').kendoGrid({
                     columns: [
                         {title: 'User Name', field: 'username'},
                         {title: 'e-Mail', field: 'email'},
@@ -39,7 +39,6 @@ function addTable() {
         }
     });
 }
-
 
 export {
     addTable

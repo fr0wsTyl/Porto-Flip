@@ -46,7 +46,7 @@ function courseTable() {
                 console.log(error);
             }
         });
-    function joinCourse(ev) {
+        function joinCourse(ev) {
             ev.preventDefault();
 
             let dataItem = this.dataItem($(ev.currentTarget).closest("tr"));
@@ -60,8 +60,9 @@ function courseTable() {
                     result.save();
                     $('<div />').addClass('alert alert-success alert-dismissable')
                         .html('You have successfully joined ' + courseToJoin)
-                        .prependTo('#coursegrid')
+                        .prependTo('#content')
                         .fadeOut(4000);
+                        return
                 },
                 error: function(error) {
                     console.log("Error: " + error.code + " " + error.message);

@@ -1,7 +1,3 @@
-<h2 align="center">Important</h2>
-In order to run the application you need to have installed NodeJS and run the command <strong>npm install</strong> in iLearn folder. 
-Otherwise you won't be able to run the application because of the missing javascript libraries.
-
 # Porto-Flip
 Teamwork repository for Telerik Academy team Porto Flip
 
@@ -14,12 +10,36 @@ are signed up to.
 
 ***
 Public link to our project! 
+
 <a href="https://github.com/fr0wsTyl/Porto-Flip/tree/master/iLearn" alt="Porto flip repo">Github for Team Porto Flip</a>
 ***
 
+## Main Functionallity:
+
+* Pages for Home screen Login and Register
+
+* Register Strudents and Teachers
+	* There is local validation for their input data
+	* Edit your prifile details
+	* Data is saved on Parse
+	* Logout Fucntionality
+	
+* Teachers can create courses
+* Students can join courses
+
+## Used Technologies
+
+* Extensive use of jQuery from DOM manipulations and ajax requests
+* Created separete modules for each functionality
+* KendoUI Grid used for displaying vital data and interaction like joining a Course
+* Parse is used for data storage
+* localStorage holds information for the current user
+* The application is tyled with Twitter Bootstrap
+* A fancy button allowing sharing info to Facebook, Tweeter, Google+ and LinkedIn 
+
 ## Browser Compatibility
-  
-**IE 10+**
+
+*The application must work in the latest versions of the following browsers  
 
 **Chrome**  
 
@@ -29,37 +49,14 @@ Public link to our project!
 
 **Opera**
 
-Project functions and requirements:
+<h2 align="center">Important</h2>
+In order to run the application you need to have installed NodeJS and run the command <strong>npm install</strong> in iLearn folder. 
+Otherwise you won't be able to run the application because of the missing javascript libraries.
 
-	Registration
-	Login
-	Account types - teacher, student (admin)
-					Person -> Teacher/Student (inherit)
-	
-	Teacher  - create courses, add students, add resources
-	Courses - open/private; list of lectures, list of  assignments
-	Students  - can join courses, access resources
-	 -> id
-	 -> name
-	 -> e-mail
-	 -> age
-	 -> list of courses
-	 -> password
-	 -> ?special roles - e.g. assistant
-	Actions: 
-	 -> System engine 
-	 		- create courses
-	 		- add students
-	 		- edit course participants
-	 		- manage file upload download
-	 		- send assignments
-			- ?send e-mails
-			- notifications
-			- evaluate results (from teacher input)
-			- calender/ grid UI
-	
-
-
-References:
+## References:
 Login documentation:
 https://www.parse.com/docs/js/guide#users-logging-in
+
+<a href="https://github.com/fr0wsTyl/Porto-Flip/tree/master/iLearn" alt="Porto flip repo">Github for Team Porto Flip</a>
+
+Thank you for the interest in our project

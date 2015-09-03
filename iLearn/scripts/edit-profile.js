@@ -57,7 +57,9 @@ import {handleError} from 'scripts/error-handler.js';
 		try {
 			validator.validateUserMail($emailInputValue);
 			validator.validateUserAge($ageInputValue);
-			validator.validateUserPasswordLength($passwordInputValue);
+			if ($passwordInputValue) {
+				validator.validateUserPasswordLength($passwordInputValue);
+			}
 		} catch (err) {
 			if (err.name === 'InputMailError') {
 				handleError('#email-edit-value', err.message, $emailInputValue);

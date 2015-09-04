@@ -4,7 +4,9 @@ import {parseInitialization} from 'scripts/engine.js';
 import {bootflat} from 'bootflat';
 
 function login(element) {
-
+    
+    $('.active').removeClass('active');
+    $('.login-nav-menu').addClass('active');
     $('#content').html('').load('./content/login-content.html', function() {
         parseInitialization();
         const TIMEOUT_CHANING_PAGE = 1600;

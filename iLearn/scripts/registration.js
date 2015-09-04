@@ -12,7 +12,9 @@ function registration() {
             $(this).hide();
         });
     }
-
+    
+    $('.active').removeClass('active');
+    $('.register-nav-menu').addClass('active');
     $('#content').html('').load('./content/register-panel.html', function() {
 
         parseInitialization();

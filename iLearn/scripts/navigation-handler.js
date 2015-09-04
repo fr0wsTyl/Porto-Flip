@@ -7,11 +7,11 @@ if (isLogged) {
 }
 
 if (!isLogged) {
-    makeAjaxRequest ("content/nav-home.html");
+    makeAjaxRequest("content/nav-home.html");
 } else if (isTeacher) {
-    makeAjaxRequest ("content/nav-teacher.html");
+    makeAjaxRequest("content/nav-teacher.html");
 } else {
-    makeAjaxRequest ("content/nav-student.html");
+    makeAjaxRequest("content/nav-student.html");
 }
 
 function makeAjaxRequest (url) {

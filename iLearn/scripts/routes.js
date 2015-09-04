@@ -17,10 +17,12 @@ import {registration} from 'scripts/registration.js';
 		this.get('#/course-grid', courseTable);
 		this.get('#/all-students', addTable);
 		this.get('#/home', function () {
+			$('.active').removeClass('active');
+    		$('.home-nav-menu').addClass('active');
 			$('#content').load('./content/home.html');
 		});
 		this.get('#/login', login);
 		this.get('#/register', registration);
 	});
-	sammyApp.run('#/');
+	sammyApp.run('#/home');
 })();

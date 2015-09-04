@@ -30,12 +30,32 @@ Public link to our project!
 ## Used Technologies
 
 * Extensive use of jQuery from DOM manipulations and ajax requests
+* sammy.js for creating a SPA 
 * Created separete modules for each functionality
 * KendoUI Grid used for displaying vital data and interaction like joining a Course
 * Parse is used for data storage
 * localStorage holds information for the current user
 * The application is tyled with Twitter Bootstrap
 * A fancy button allowing sharing info to Facebook, Tweeter, Google+ and LinkedIn 
+
+## JavaScript files
+* courseGrid.js 
+* createCourse.js
+* edit-profile.js
+* engine.js
+* error-handler.js
+* footer.js
+* getusername.js
+* gridTable.js
+* hehader.js
+* login.js
+* logout.js
+* navigation-handler.js
+* profile-redirect.js
+* registration.js
+* routes.js
+* social.js
+* validator.js
 
 ## Browser Compatibility
 

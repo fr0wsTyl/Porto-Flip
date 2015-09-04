@@ -4,7 +4,7 @@ import {createCourse} from 'scripts/createCourse.js';
 import {courseTable} from 'scripts/courseGrid.js';
 import  {addTable} from 'scripts/gridTable.js';
 import {login} from 'scripts/login.js'
-import {registration} from 'scripts/registration.js'
+import {registration} from 'scripts/registration.js';
 
 
 (function () {

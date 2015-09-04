@@ -12,7 +12,9 @@ function addTable() {
             if (results) {
                 var usersDataBase = [];
                 results.forEach(function(item) {
-                   usersDataBase.push(item._serverData);
+                   if (item._serverData.isTeacher === false) {
+                       usersDataBase.push(item._serverData);
+                   }
                 });
                 $("#content").html('').kendoGrid({
                     columns: [

@@ -3,8 +3,9 @@ import {edit} from 'scripts/edit-profile.js';
 import {createCourse} from 'scripts/createCourse.js';
 import {courseTable} from 'scripts/courseGrid.js';
 import  {addTable} from 'scripts/gridTable.js';
-import {login} from 'scripts/login.js'
+import {login} from 'scripts/login.js';
 import {registration} from 'scripts/registration.js';
+import {showMyCourses} from 'scripts/myCourses.js';
 
 
 (function () {
@@ -14,6 +15,7 @@ import {registration} from 'scripts/registration.js';
 		});
 		this.get('#/edit-profile', edit);
 		this.get('#/create-course', createCourse);
+		this.get('#/my-courses', showMyCourses);
 		this.get('#/course-grid', courseTable);
 		this.get('#/all-students', addTable);
 		this.get('#/home', function () {

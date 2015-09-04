@@ -19,7 +19,7 @@
             type: 'GET',
             contentType: 'text/html',
             success: function (data) {
-                $('#nav').html('').append(data)
+                $('#nav').html('').append(data);
             }});
     }
 } ());

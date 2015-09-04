@@ -69,16 +69,15 @@ function registration() {
                     Parse.User.logIn($usernameValue, $passwordValue, {
                         success: function (user) {
                             let $element = $('<div/ >').text('Successful registration. Redirecting to your profile...').addClass('label label-success').show();
-                            // TODO Throws an Error fix the following line:
-                            $('#result').html(element);
+                            $('#result').html($element);
                             $('#username-register-value').remove();
                             $('#email-register-value').remove();
                             $('#age-register-value').remove();
                             $('#password-register-value').remove();
-                            let $elementRegister = $('<div class="form-group has-success has-feedback"><input placeholder="Enter username" type="text" class="form-control" id="username-register-value"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
-                            let $elementEmail = $('<div class="form-group has-success has-feedback"><input placeholder="Enter email address" type="text" class="form-control" id="email-register-value"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
-                            let $elementAge = $('<div class="form-group has-success has-feedback"><input placeholder="Enter your age" type="text" class="form-control" id="age-register-value"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
-                            let $elementPassword = $('<div class="form-group has-success has-feedback"><input placeholder="Enter password" type="password" class="form-control" id="password-register-value"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
+                            let $elementRegister = $('<div class="form-group has-success has-feedback"><input type="text" class="form-control" id="username-register-value"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
+                            let $elementEmail = $('<div class="form-group has-success has-feedback"><input type="password" class="form-control" id="email-register-value"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
+                            let $elementAge = $('<div class="form-group has-success has-feedback"><input type="password" class="form-control" id="age-register-value"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
+                            let $elementPassword = $('<div class="form-group has-success has-feedback"><input type="password" class="form-control" id="password-register-value"><span class="glyphicon glyphicon-ok form-control-feedback"></span></div>');
                             $('.panel-body').prepend($elementRegister);
                             $($elementRegister).append($elementEmail);
                             $elementEmail.append($elementAge);

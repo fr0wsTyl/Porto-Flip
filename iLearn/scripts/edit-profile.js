@@ -7,6 +7,13 @@ import {handleError} from 'scripts/error-handler.js';
 
 export function edit () {
 	$('#content').load('./content/edit-profile.html', function () {
+
+		function clearNotNeededElements() {
+			$("*[id*='alert']").each(function() {
+				$(this).hide();
+			});
+		}
+
 		parseInitialization();
 		$('[data-toggle="tooltip"]').tooltip({ 'placement': 'top' });
 
@@ -73,6 +80,8 @@ export function edit () {
 				}
 				return
 			}
+
+			clearNotNeededElements();
 
 			var currentUser = Parse.User.current();
 			if (currentUser) {

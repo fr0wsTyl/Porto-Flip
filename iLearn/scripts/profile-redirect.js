@@ -6,7 +6,7 @@ function profileRedirect(isLogged) {
 	}
 	else {
 		if (localStorage.getItem('Parse/OxNzrzXTEVzRxH9qHpel84j4dD8QJs4aFUbmrWYc/currentUser') === null) {
-			document.location.href = './index.html';
+			document.location.href = './index.html#/home';
 		}
 	}
 }

@@ -62,7 +62,6 @@ function courseTable() {
                         .html('You have successfully joined ' + courseToJoin)
                         .prependTo('#content')
                         .fadeOut(4000);
-                        return
                 },
                 error: function(error) {
                     console.log("Error: " + error.code + " " + error.message);

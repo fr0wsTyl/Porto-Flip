@@ -24,5 +24,5 @@ import {registration} from 'scripts/registration.js';
 		this.get('#/login', login);
 		this.get('#/register', registration);
 	});
-	sammyApp.run('#/home');
+	sammyApp.run('#/');
 })();
